@@ -1,0 +1,15 @@
+{
+  "name": "bots-mva",
+  "version": "1.0.0",
+  "description": "Samples for the Bots MVA",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "restify": "^4.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratham03/pnrBot.git"
+  },
+  "author": "",
+  "license": "MIT"
+}
