@@ -4,6 +4,7 @@
   "description": "Samples for the Bots MVA",
   "dependencies": {
     "botbuilder": "^3.7.0",
+    "follow-redirects": "^1.2.3",
     "restify": "^4.3.0"
   },
   "repository": {
