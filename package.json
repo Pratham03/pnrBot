@@ -1,0 +1,22 @@
+{
+  "name": "bots-mva",
+  "version": "1.0.0",
+  "description": "Samples for the Bots MVA",
+  "main": "pnrBotInteractions.js",
+  "scripts": {
+    "start": "node pnrBotInteractions.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "dotenv-extended": "^1.0.4",
+    "follow-redirects": "^1.2.3",
+    "restify": "^4.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratham03/pnrBot.git"
+  },
+  "author": "",
+  "license": "MIT"
+}
