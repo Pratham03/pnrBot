@@ -58,6 +58,7 @@ dialog.matches(/^get status/i, [
                         text += 'Passenger ' + i+1 + ' Status:' +  pnrStatus.passengers[i].current_status + ' \n';
                         text += 'Passenger ' + i+1 + ' Status:' +  pnrStatus.passengers[i].coach_position + ' \n';
                     }
+                    card.text(text);
                     var message = new builder.Message(session).attachments([card]);
                     session.send(message);
 
