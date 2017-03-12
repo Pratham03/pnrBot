@@ -1,8 +1,15 @@
 var builder = require('botbuilder');
 var restify = require('restify');
 var pnrClient = require('./pnr-client.js');
+var dotenv = require("dotenv-extended");
+
+//Load environment variables
+dotenv.load();
 //Create a connector for the bot
-var connector = new builder.ChatConnector();
+var connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
 //Creating the bot
 var pnrBot = new builder.UniversalBot(connector);
 
@@ -60,6 +67,7 @@ dialog.matches(/^get status/i, [
         }
     }
     ]);
+dialog.onDefault(builder.DialogAction.send("Sorry I did not understand. Please type 'get status' or 'get status <10 digit PNR Number>'"));
 pnrBot.dialog('/', dialog);
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
