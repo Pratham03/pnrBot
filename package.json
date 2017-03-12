@@ -2,8 +2,9 @@
   "name": "bots-mva",
   "version": "1.0.0",
   "description": "Samples for the Bots MVA",
-  "main": "index.js",
+  "main": "pnrBotInterations.js",
   "scripts": {
+    "start": "node pnrBotInterations.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
