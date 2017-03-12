@@ -45,10 +45,11 @@ dialog.matches(/^get status/i, [
                 }
                 else
                 {
-                    var card = new builder.ThumbnailCard(session);
+                    var card = new builder.HeroCard(session);
                     card.title(pnrStatus.pnr);
+                    card.subtitle("Train Number: " + pnrStatus.train_num);
                     var text = '';
-                    text += pnrStatus.train_num + ' \n';
+                    text += 'Train Number:' + pnrStatus.train_num + ' \n';
                     text += 'Train Name:' + pnrStatus.train_name + ' \n';
                     text += 'Date of Journey:' + pnrStatus.doj + ' \n';
                     text +=  'From Station:' + pnrStatus.from_station.name + ' \n';
