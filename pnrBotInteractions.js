@@ -51,14 +51,14 @@ dialog.matches(/^get status/i, [
                     var text = '';
                     text += 'Train Number:' + pnrStatus.train_num + ' \n';
                     text += 'Train Name:' + pnrStatus.train_name + ' \n';
-                    text += 'Date of Journey:' + pnrStatus.doj + ' \n';
-                    text +=  'From Station:' + pnrStatus.from_station.name + ' \n';
-                    text += 'To Station:' + pnrStatus.to_station.name + ' \n';
                     for(var i = 0; i < pnrStatus.passengers.length; i++)
                     {
                         text += 'Passenger ' + i+1 + ' Status:' +  pnrStatus.passengers[i].current_status + ' \n';
                         text += 'Passenger ' + i+1 + ' Status:' +  pnrStatus.passengers[i].coach_position + ' \n';
                     }
+                    text += 'Date of Journey:' + pnrStatus.doj + ' \n';
+                    text +=  'From Station:' + pnrStatus.from_station.name + ' \n';
+                    text += 'To Station:' + pnrStatus.to_station.name + ' \n';
                     card.text(text);
                     var message = new builder.Message(session).attachments([card]);
                     session.send(message);
