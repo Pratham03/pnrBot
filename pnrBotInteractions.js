@@ -35,7 +35,14 @@ dialog.matches(/^get status/i, [
         else
         {
             pnrClient.getPNRStatus(query, function(pnrStatus){
-                if(pnrStatus.response_code == "410")
+                if(typeof pnrStatus === 'string')
+                {
+                    if(pnrStatus.charAt(0) == '<')
+                    {
+                        session.endDialog("Oops! Something went wrong. Please try again");
+                    }
+                }
+                else if(pnrStatus.response_code == "410")
                 {
                     session.endDialog("PNR flushed or not generated");
                 }
@@ -58,16 +65,18 @@ dialog.matches(/^get status/i, [
                         text += '*Passenger ' + i+1 + ' Status:' +  pnrStatus.passengers[i].current_status + ' \n';
                         text += '*Passenger ' + i+1 + ' Coach Position:' +  pnrStatus.passengers[i].coach_position + ' \n';
                     }
-                    card.text(text);
-                    var message = new builder.Message(session).attachments([card]);
+                    // card.text(text);
+                    // var message = new builder.Message(session).attachments([card]);
+                    message.text(text);
                     session.send(message);
 
                 }
 
             });
-        }
     }
-    ]);
+}
+]);
+
 dialog.onDefault(builder.DialogAction.send("Sorry I did not understand. Please type 'get status' or 'get status <10 digit PNR Number>'"));
 pnrBot.dialog('/', dialog);
 var server = restify.createServer();

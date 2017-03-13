@@ -17,11 +17,18 @@ module.exports = {
             }
         };
         var profile;
-        var request = http.get(options, function (response) {
+        var request = http.request(options, function (response) {
                 var data = '';
                 response.on('data', function (chunk) { data += chunk; });
                 response.on('end', function () {
-                    callback(JSON.parse(data));
+                    if(data.charAt(0) == '<')
+                    {
+                        callback(data);
+                    }
+                    else
+                    {
+                        callback(JSON.parse(data));
+                    }
                 });
         });
         request.end();
